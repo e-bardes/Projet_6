@@ -4,7 +4,6 @@
 
 package com.openclassroom.escalade.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -32,7 +31,7 @@ public class Longueur {
 	@Column(name = "cotation_falaise")
 	private CotationFalaise cotationFalaise;
 
-	@ManyToOne(cascade = { CascadeType.ALL })
+	@ManyToOne
 	@JoinColumn(name = "voie_id")
 	private Voie voie;
 
