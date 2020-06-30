@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -168,7 +168,7 @@
 													<tbody>
 														<tr>
 															<td>
-																<c:forEach items="${site.listeVoies}" var="voie">
+																<c:forEach items="${secteur.listeVoies}" var="voie">
 																	${voie.id} <br/> <br/>
 																	<c:forEach items="${voie.listeLongueurs}" var="longueur">
 																		<br/>
@@ -177,8 +177,8 @@
 															</td>
 															<td>
 																<c:choose>
-																	<c:when test="${not empty site.listeVoies[0].cotationBloc}">
-																		<c:forEach items="${site.listeVoies}" var="voie">
+																	<c:when test="${not empty secteur.listeVoies[0].cotationBloc}">
+																		<c:forEach items="${secteur.listeVoies}" var="voie">
 																			${voie.cotationBloc.valeurCotation} <br/>
 																			<c:forEach items="${voie.listeLongueurs}" var="longueur">
 																				&ensp;&ensp;${longueur.cotationBloc.valeurCotation} <br/>
@@ -187,7 +187,7 @@
 																		</c:forEach>
 																	</c:when>
 																	<c:otherwise>
-																		<c:forEach items="${site.listeVoies}" var="voie">
+																		<c:forEach items="${secteur.listeVoies}" var="voie">
 																			${voie.cotationFalaise.valeurCotation} <br/>
 																			<c:forEach items="${voie.listeLongueurs}" var="longueur">
 																				&ensp;&ensp;${longueur.cotationFalaise.valeurCotation} <br/>
@@ -198,7 +198,7 @@
 																</c:choose>
 															</td>
 															<td>
-																<c:forEach items="${site.listeVoies}" var="voie">
+																<c:forEach items="${secteur.listeVoies}" var="voie">
 																	<c:choose>
 																		<c:when test="${voie.isEquipe == true}">
 																			<i class="fas fa-check"></i>
@@ -236,7 +236,7 @@
 													<tbody>
 														<tr>
 															<td>
-																<c:forEach items="${site.listeVoies}" var="voie">
+																<c:forEach items="${secteur.listeVoies}" var="voie">
 																	${voie.id} <br/> <br/>
 																	<c:forEach items="${voie.listeLongueurs}" var="longueur">
 																		<br/>
@@ -245,8 +245,8 @@
 															</td>
 															<td>
 																<c:choose>
-																	<c:when test="${not empty site.listeVoies[0].cotationBloc}">
-																		<c:forEach items="${site.listeVoies}" var="voie">
+																	<c:when test="${not empty secteur.listeVoies[0].cotationBloc}">
+																		<c:forEach items="${secteur.listeVoies}" var="voie">
 																			${voie.cotationBloc.valeurCotation} <br/>
 																			<c:forEach items="${voie.listeLongueurs}" var="longueur">
 																				&ensp;&ensp;${longueur.cotationBloc.valeurCotation} <br/>
@@ -255,7 +255,7 @@
 																		</c:forEach>
 																	</c:when>
 																	<c:otherwise>
-																		<c:forEach items="${site.listeVoies}" var="voie">
+																		<c:forEach items="${secteur.listeVoies}" var="voie">
 																			${voie.cotationFalaise.valeurCotation} <br/>
 																			<c:forEach items="${voie.listeLongueurs}" var="longueur">
 																				&ensp;&ensp;${longueur.cotationFalaise.valeurCotation} <br/>
@@ -266,7 +266,7 @@
 																</c:choose>
 															</td>
 															<td>
-																<c:forEach items="${site.listeVoies}" var="voie">
+																<c:forEach items="${secteur.listeVoies}" var="voie">
 																	<c:choose>
 																		<c:when test="${voie.isEquipe == true}">
 																			<i class="fas fa-check"></i>

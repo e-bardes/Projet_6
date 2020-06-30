@@ -42,17 +42,17 @@
 									<!-- adresse mail affiché une fois  -->
 									<c:if test="${ not empty topo.possessor}">
 										<p class="card-title">
-											Mail de contact: ${utilisateur.adresseMail}
+											Mail de contact: ${utilisateur.adresseMail} <br/>
 											Adresse postal: ${utilisateur.adressePostal}
 										</p>
 									</c:if>
 								</div>
 								<div class="card-body">				
 									<p class="card-text">Pour le topo : ${topo.nom}</p>
-									<c:choose>
 									<!-- si il n'y a pas de possesseur actuel (càd disponible et toujours en attente de réservation) -->
+									<c:choose>
 										<c:when test="${empty topo.possessor}">
-											<form action="<c:url value="listedemandesreservationrecues?topoId=${topo.id}
+											<form class="mb-2" action="<c:url value="listedemandesreservationrecues?topoId=${topo.id}
 												&utilisateurId=${utilisateur.id}&acceptation=true"/>" method="post">
 												<button class="btn btn-success" type="submit"> Accepter sa demande </button>
 											</form>

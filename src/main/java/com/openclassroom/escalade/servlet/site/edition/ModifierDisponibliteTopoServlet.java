@@ -1,4 +1,4 @@
-package com.openclassroom.escalade.servlet.topo;
+package com.openclassroom.escalade.servlet.site.edition;
 
 import java.io.IOException;
 

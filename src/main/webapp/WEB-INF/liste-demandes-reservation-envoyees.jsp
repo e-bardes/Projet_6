@@ -47,8 +47,8 @@
 									<c:when test="${empty topo.possessor}">
 										<span class="text-success border p-2 mt-2"> Demande de réservation envoyée </span>
 									</c:when>
-									<!-- si l'utilisateur courant est le possesseur d'un topo emprunté, il peut le rendre -->
-									<c:when test="${(topo.possessor != topo.owner) and (not empty topo.possessor)}">
+
+									<c:when test="${(topo.possessor != topo.owner) and (not empty topo.possessor)}"> <!-- si l'utilisateur courant est le possesseur d'un topo emprunté, il peut le rendre -->
 										<span class="text-success border p-2 mt-2"> Demande de réservation acceptée </span>
 										<p class="card-text">Mail de contact: ${topo.owner.adresseMail}</p>
 										<form action="<c:url value="changement-etat-emprunt?topoId=${topo.id}

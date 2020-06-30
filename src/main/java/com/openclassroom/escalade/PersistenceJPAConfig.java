@@ -1,6 +1,7 @@
 package com.openclassroom.escalade;
 
 import java.util.Properties;
+import java.util.ResourceBundle;
 
 import javax.sql.DataSource;
 
@@ -20,6 +21,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableJpaRepositories(basePackages = { "com.openclassroom.escalade" })
 @EnableTransactionManagement
+// sert pour la configuration de spring et de l'injection de dépendance
 @ComponentScan({ "com.openclassroom.escalade" })
 public class PersistenceJPAConfig {
 
@@ -37,14 +39,18 @@ public class PersistenceJPAConfig {
 		return em;
 	}
 
+	// connection à la base de données
 	@Bean
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-		dataSource.setDriverClassName("org.postgresql.Driver");
-		dataSource.setUsername("postgres");
-		dataSource.setPassword("qlk39cn3ZDie9DJ");
-		dataSource.setUrl("jdbc:postgresql://localhost:5432/testdb");
+		String bundleName = "parametres";
+		ResourceBundle resourceBundle = ResourceBundle.getBundle(bundleName);
+
+		dataSource.setDriverClassName(resourceBundle.getString("driverClassName"));
+		dataSource.setUsername(resourceBundle.getString("username"));
+		dataSource.setPassword(resourceBundle.getString("password"));
+		dataSource.setUrl(resourceBundle.getString("url"));
 
 		return dataSource;
 	}
@@ -65,10 +71,7 @@ public class PersistenceJPAConfig {
 
 	Properties additionalProperties() {
 		Properties properties = new Properties();
-		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 		properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-		properties.setProperty("javax.persistence.sql-load-script-source", "data.sql");
-
 		return properties;
 	}
 }

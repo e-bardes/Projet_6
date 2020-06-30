@@ -1,4 +1,4 @@
-package com.openclassroom.escalade.servlet.site;
+package com.openclassroom.escalade.servlet.site.edition;
 
 import java.io.IOException;
 
@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.openclassroom.escalade.domain.Site;
 import com.openclassroom.escalade.service.SiteCommentaryService;
 import com.openclassroom.escalade.service.SiteInformationService;
 import com.openclassroom.escalade.servlet.AbstractServlet;
@@ -47,6 +48,10 @@ public class DetailsSiteServlet extends AbstractServlet {
 		request.setAttribute("listecommentaires", siteCommentaryService.getCommentaries(null, siteId));
 		// on stocke toutes les réponses de tous les commentaires d'un site
 		request.setAttribute("listerepcommentaires", siteCommentaryService.getAllResponsesOfASite(siteId));
+
+		System.out.println(((Site) request.getAttribute("site")).getListeVoies());
+
+		System.out.println(((Site) request.getAttribute("site")).getId());
 
 		request.getRequestDispatcher("/WEB-INF/details-site.jsp").forward(request, response);
 	}

@@ -33,10 +33,6 @@ public class Site {
 	private String description;
 	@Column(name = "is_officiel_les_amis_de_lescalade")
 	private boolean isOfficielLesAmisDeLescalade;
-//	@Column(name = "image_data")
-//	private byte[] imageData;
-//	@Column(name = "image_file_name")
-//	String imageFileName;
 
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(targetEntity = Secteur.class, mappedBy = "site")
